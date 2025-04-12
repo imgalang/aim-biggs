@@ -77,7 +77,7 @@ def print_external_data_head(context, ext_data: dict) -> dict:
 @asset
 def biggs_dataset() -> pd.DataFrame:
     # Generate one year of daily data
-    dates = pd.date_range(start="2022-01-01", periods=365, freq="D")
+    dates = pd.date_range(start="2023-01-01", periods=365, freq="D")
     np.random.seed(42)
     # Create a time series target
     target = np.random.rand(365)
