@@ -78,7 +78,7 @@ services:
       dockerfile: ./dockerfiles/mlflow
     container_name: mlflow
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - MLFLOW_ARTIFACT_URI=${MLFLOW_ARTIFACT_URI}
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
@@ -94,7 +94,7 @@ services:
       --serve-artifacts
       --artifacts-destination ${MLFLOW_BUCKET_NAME}
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:5000/" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:5001/" ]
       interval: 30s
       timeout: 10s
       retries: 3
