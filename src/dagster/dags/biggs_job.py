@@ -39,6 +39,11 @@ mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     }
 )
 def external_data(context) -> dict:
+    # this asset fetches data from an external MariaDB database
+    # and returns a dictionary of DataFrames
+    # Each DataFrame corresponds to a query in the config
+    # The queries are expected to return dataframes with the same columns
+    # as the ones used in the training job
     config = context.op_config
     results = {}
     try:
